@@ -22,28 +22,18 @@
                                 <animations/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="0.39867504222972971" colorSpace="calibratedWhite"/>
                             </scrollView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cvH-EN-vMf" customClass="SKView">
-                                <rect key="frame" x="0.0" y="120" width="600" height="480"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="cvH-EN-vMf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2CO-Pf-WRW"/>
-                            <constraint firstAttribute="trailing" secondItem="cvH-EN-vMf" secondAttribute="trailing" id="80C-8Y-WED"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="S0V-k5-AJO" secondAttribute="bottom" id="HmR-YU-9Tp"/>
                             <constraint firstItem="S0V-k5-AJO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="MBo-hb-gDG"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cvH-EN-vMf" secondAttribute="bottom" id="SFw-3E-TfA"/>
-                            <constraint firstItem="cvH-EN-vMf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="Zaq-qc-Jup"/>
                             <constraint firstAttribute="trailing" secondItem="S0V-k5-AJO" secondAttribute="trailing" id="hZM-3j-mKC"/>
                             <constraint firstItem="S0V-k5-AJO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="100" id="yXZ-hD-GQY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bubbleView" destination="S0V-k5-AJO" id="dpn-UI-t5Y"/>
-                        <outlet property="skView" destination="cvH-EN-vMf" id="ETJ-SP-fXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

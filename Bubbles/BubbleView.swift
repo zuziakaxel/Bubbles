@@ -21,11 +21,14 @@ protocol BubbleViewDelegate {
 
 
 public let DT = 0.001
-class BubbleView: UIScrollView {
+class BubbleView: UIScrollView, UICollisionBehaviorDelegate {
 
     //MARK: Private -
     private var timer: NSTimer!
-
+    private var animator: UIDynamicAnimator!
+    private var collision: UICollisionBehavior!
+    
+    private var view: UIView!
     //MARK: Scroll
     var lastContentOffset = CGPointZero
     
@@ -52,7 +55,16 @@ class BubbleView: UIScrollView {
     func reload() {
         if bubbleDelegate == nil { return }
         removeSubviews()
+
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "didTap:")
+        
+        
+        view = UIView(frame: CGRectMake(0, 0, calculateContentSize().width, calculateContentSize().width))
         self.contentSize = calculateContentSize()
+        self.addSubview(view)
+        animator = UIDynamicAnimator(referenceView: view)
+        
         let NoBubbles = (bubbleDelegate?.numberOfBubbles())!
         for i in 0...NoBubbles-1 {
             var bubble = createBubble(i)
@@ -60,12 +72,32 @@ class BubbleView: UIScrollView {
                 bubble = createBubble(i)
             }
             bubbles.append(bubble)
+            self.view.addSubview(bubble)
+            animator.addBehavior(bubble.movement)
         }
-        timer = NSTimer.scheduledTimerWithTimeInterval(DT, target: self, selector: "update", userInfo: nil, repeats: true)
-        NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
-        addSubviews()
+
+        //        gravity = UIGravityBehavior(items: [square])
+        //        animator.addBehavior(gravity)
+        
+        collision = UICollisionBehavior(items: bubbles)
+        collision.collisionDelegate = self
+        collision.collisionMode = .Everything
+        // add a boundary that has the same frame as the barrier
+        collision.addBoundaryWithIdentifier("barrier", forPath: UIBezierPath(rect: self.view.frame))
+        collision.addBoundaryWithIdentifier("barrierDown", fromPoint: CGPointMake(self.view.frame.origin.x, view.frame.height), toPoint: CGPointMake(self.view.frame.origin.x + self.view.frame.width, view.frame.height))
+        collision.addBoundaryWithIdentifier("barrierBottom", fromPoint: CGPointMake(self.view.frame.origin.x, 480), toPoint: CGPointMake(self.view.frame.origin.x + self.view.frame.width, 480))
+        collision.translatesReferenceBoundsIntoBoundary = true
+        animator.addBehavior(collision)
+        
+        let itemBehaviour = UIDynamicItemBehavior(items: bubbles)
+        itemBehaviour.elasticity = 1.0
+        animator.addBehavior(itemBehaviour)
+//        addSubviews()
     }
-    
+    func collisionBehavior(behavior: UICollisionBehavior, beganContactForItem item: UIDynamicItem, withBoundaryIdentifier identifier: NSCopying?, atPoint p: CGPoint) {
+            print("Boundary contact occurred - \(identifier)")
+    }
+
     func update() {
         print("Update: \(NSDate())")
         for bubble in bubbles {
@@ -122,7 +154,7 @@ class BubbleView: UIScrollView {
     
     private func addSubviews() {
         for bubble in bubbles {
-            addSubview(bubble)
+            self.view.addSubview(bubble)
         }
     }
     
@@ -135,7 +167,7 @@ class BubbleView: UIScrollView {
     private func createBubble(index: Int) -> Bubble {
         let radius = getRadius(index)
         
-        let randomX = arc4random_uniform(UInt32(Int(contentSize.width/3.0)-Int(radius))) + UInt32(radius)
+        let randomX = arc4random_uniform(UInt32(Int(contentSize.width)-Int(radius))) + UInt32(radius)
         let randomY = arc4random_uniform(UInt32(Int(contentSize.height)-Int(radius))) + UInt32(radius)
         return Bubble(radius: CGFloat(radius), center: CGPoint(x: Double(randomX), y: Double(randomY)))
     }
@@ -164,7 +196,7 @@ class BubbleView: UIScrollView {
         width += 40 // spacing
         let maxWidth = width
         
-        return CGSizeMake(CGFloat(2*maxWidth), height)
+        return CGSizeMake(CGFloat(maxWidth), height)
         
     }
     

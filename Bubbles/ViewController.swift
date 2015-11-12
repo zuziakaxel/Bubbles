@@ -27,7 +27,7 @@ class ViewController: UIViewController, BubbleViewDelegate {
     //MARK: BubbleView Delegate:
     
     func numberOfBubbles() -> Int {
-        return 30
+        return 50
     }
     
     func radiusForBubbleAtIndex(index: Int) -> BubbleRadius {

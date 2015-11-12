@@ -10,14 +10,24 @@ import UIKit
 
 
 class Bubble: UIView {
-//MARK: IBOoutlets -
+    @available(iOS 9.0, *)
+    override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
+        return .Ellipse
+    }
     
 //MARK: Physical Properties -
     var a = Acceleration(x: -0.1, y: -0.1)
     var v = Velocity(x: 0.03, y: 0.03)
     var m: Double
-    var r: Double
+    var r: Double {
+        didSet {
+            updateFrame()
+        }
+    }
     var updated = false
+    
+    var movement: UIPushBehavior!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -25,14 +35,34 @@ class Bubble: UIView {
     init(radius: CGFloat, center: CGPoint) {
         r = Double(radius)
         let frame = CGRectMake(center.x-radius, center.y-radius, 2*radius, 2*radius)
-        m = Double(radius)
+        m = r
         super.init(frame: frame)
         self.layer.cornerRadius = radius
         self.backgroundColor = UIColor.redColor()
+        movement = UIPushBehavior(items: [self], mode: .Instantaneous)
+        movement.pushDirection = CGVectorMake(0.6, 0.4)
+        movement.active = true
+        let tap = UITapGestureRecognizer(target: self, action: "handleTap:")
+        self.addGestureRecognizer(tap)
+    }
+    
+    func handleTap(sender: UITapGestureRecognizer? = nil) {
+        print("Did tap")
+        self.r += 10
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func updateFrame() {
+        self.m = r
+        let oldCenter = self.center
+        self.frame = CGRectMake(center.x, center.y, CGFloat(2*r), CGFloat(2*r))
+        self.layer.cornerRadius = CGFloat(r)
+        self.center = oldCenter
+        self.layoutIfNeeded()
+        self.layer.masksToBounds = true
     }
     
     

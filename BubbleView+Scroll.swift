@@ -25,7 +25,7 @@ extension BubbleView: UIScrollViewDelegate {
         if direction == .None { return }
         for bubble in bubbles {
             let velocityIncrement = direction == .Left ? 0.005 : -0.005
-            bubble.v.x.value += velocityIncrement
+//            bubble.movement.pushDirection = CGVectorMake(bubble.movement.pushDirection.dx + CGFloat(velocityIncrement), bubble.movement.pushDirection.dy)
         }
     }
 }
