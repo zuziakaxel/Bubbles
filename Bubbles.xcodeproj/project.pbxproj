@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32436BD41BF517B50068B70C /* BubbleView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32436BD31BF517B50068B70C /* BubbleView+Scroll.swift */; };
+		32436BD61BF5388B0068B70C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32436BD51BF5388B0068B70C /* SpriteKit.framework */; };
 		32C8A2EA1BF2A83100DA7D74 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A2E91BF2A83100DA7D74 /* AppDelegate.swift */; };
 		32C8A2EC1BF2A83100DA7D74 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A2EB1BF2A83100DA7D74 /* ViewController.swift */; };
 		32C8A2EF1BF2A83100DA7D74 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C8A2ED1BF2A83100DA7D74 /* Main.storyboard */; };
@@ -17,7 +19,7 @@
 		32C8A30D1BF2C36500DA7D74 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30B1BF2C36500DA7D74 /* Vector.swift */; };
 		32C8A30E1BF2C36500DA7D74 /* Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30C1BF2C36500DA7D74 /* Velocity.swift */; };
 		32C8A3101BF2C43300DA7D74 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */; };
-		32D5D5901BF4E61800E4CE30 /* StaticBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */; };
+		32D5D5901BF4E61800E4CE30 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5D58F1BF4E61800E4CE30 /* BubbleView.swift */; };
 		32D5D5921BF4E88500E4CE30 /* Bubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D5D5911BF4E88500E4CE30 /* Bubble.xib */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		32436BD31BF517B50068B70C /* BubbleView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BubbleView+Scroll.swift"; sourceTree = "<group>"; };
+		32436BD51BF5388B0068B70C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		32C8A2E61BF2A83100DA7D74 /* Bubbles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bubbles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C8A2E91BF2A83100DA7D74 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C8A2EB1BF2A83100DA7D74 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +50,7 @@
 		32C8A30B1BF2C36500DA7D74 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		32C8A30C1BF2C36500DA7D74 /* Velocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Velocity.swift; sourceTree = "<group>"; };
 		32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
-		32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticBubble.swift; sourceTree = "<group>"; };
+		32D5D58F1BF4E61800E4CE30 /* BubbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		32D5D5911BF4E88500E4CE30 /* Bubble.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bubble.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32436BD61BF5388B0068B70C /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +76,8 @@
 		32C8A2DD1BF2A83100DA7D74 = {
 			isa = PBXGroup;
 			children = (
+				32436BD51BF5388B0068B70C /* SpriteKit.framework */,
+				32436BD31BF517B50068B70C /* BubbleView+Scroll.swift */,
 				32D5D5911BF4E88500E4CE30 /* Bubble.xib */,
 				32C8A2E81BF2A83100DA7D74 /* Bubbles */,
 				32C8A2FD1BF2A83200DA7D74 /* BubblesTests */,
@@ -90,7 +97,7 @@
 		32C8A2E81BF2A83100DA7D74 /* Bubbles */ = {
 			isa = PBXGroup;
 			children = (
-				32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */,
+				32D5D58F1BF4E61800E4CE30 /* BubbleView.swift */,
 				32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */,
 				32C8A30B1BF2C36500DA7D74 /* Vector.swift */,
 				32C8A30C1BF2C36500DA7D74 /* Velocity.swift */,
@@ -216,9 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D5D5901BF4E61800E4CE30 /* StaticBubble.swift in Sources */,
+				32D5D5901BF4E61800E4CE30 /* BubbleView.swift in Sources */,
 				32C8A2EC1BF2A83100DA7D74 /* ViewController.swift in Sources */,
 				32C8A3101BF2C43300DA7D74 /* Acceleration.swift in Sources */,
+				32436BD41BF517B50068B70C /* BubbleView+Scroll.swift in Sources */,
 				32C8A30A1BF2A83F00DA7D74 /* Bubble.swift in Sources */,
 				32C8A30D1BF2C36500DA7D74 /* Vector.swift in Sources */,
 				32C8A30E1BF2C36500DA7D74 /* Velocity.swift in Sources */,

@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import SpriteKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BubbleViewDelegate {
 
-    @IBOutlet weak var bubbleView: StaticBubbleView!
+
+    @IBOutlet weak var bubbleView: BubbleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bubbleView.bubbleDelegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +24,16 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: BubbleView Delegate:
+    
+    func numberOfBubbles() -> Int {
+        return 30
+    }
+    
+    func radiusForBubbleAtIndex(index: Int) -> BubbleRadius {
+        return BubbleRadius.Specified(radius: 40)
+    }
+    
 
 }
 
