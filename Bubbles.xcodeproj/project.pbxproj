@@ -17,6 +17,8 @@
 		32C8A30D1BF2C36500DA7D74 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30B1BF2C36500DA7D74 /* Vector.swift */; };
 		32C8A30E1BF2C36500DA7D74 /* Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30C1BF2C36500DA7D74 /* Velocity.swift */; };
 		32C8A3101BF2C43300DA7D74 /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */; };
+		32D5D5901BF4E61800E4CE30 /* StaticBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */; };
+		32D5D5921BF4E88500E4CE30 /* Bubble.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32D5D5911BF4E88500E4CE30 /* Bubble.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		32C8A30B1BF2C36500DA7D74 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		32C8A30C1BF2C36500DA7D74 /* Velocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Velocity.swift; sourceTree = "<group>"; };
 		32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
+		32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticBubble.swift; sourceTree = "<group>"; };
+		32D5D5911BF4E88500E4CE30 /* Bubble.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bubble.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 		32C8A2DD1BF2A83100DA7D74 = {
 			isa = PBXGroup;
 			children = (
+				32D5D5911BF4E88500E4CE30 /* Bubble.xib */,
 				32C8A2E81BF2A83100DA7D74 /* Bubbles */,
 				32C8A2FD1BF2A83200DA7D74 /* BubblesTests */,
 				32C8A2E71BF2A83100DA7D74 /* Products */,
@@ -85,6 +90,7 @@
 		32C8A2E81BF2A83100DA7D74 /* Bubbles */ = {
 			isa = PBXGroup;
 			children = (
+				32D5D58F1BF4E61800E4CE30 /* StaticBubble.swift */,
 				32C8A30F1BF2C43300DA7D74 /* Acceleration.swift */,
 				32C8A30B1BF2C36500DA7D74 /* Vector.swift */,
 				32C8A30C1BF2C36500DA7D74 /* Velocity.swift */,
@@ -192,6 +198,7 @@
 				32C8A2F41BF2A83100DA7D74 /* LaunchScreen.storyboard in Resources */,
 				32C8A2F11BF2A83100DA7D74 /* Assets.xcassets in Resources */,
 				32C8A2EF1BF2A83100DA7D74 /* Main.storyboard in Resources */,
+				32D5D5921BF4E88500E4CE30 /* Bubble.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D5D5901BF4E61800E4CE30 /* StaticBubble.swift in Sources */,
 				32C8A2EC1BF2A83100DA7D74 /* ViewController.swift in Sources */,
 				32C8A3101BF2C43300DA7D74 /* Acceleration.swift in Sources */,
 				32C8A30A1BF2A83F00DA7D74 /* Bubble.swift in Sources */,
@@ -402,6 +410,7 @@
 				32C8A3051BF2A83200DA7D74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		32C8A3061BF2A83200DA7D74 /* Build configuration list for PBXNativeTarget "BubblesTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +419,7 @@
 				32C8A3081BF2A83200DA7D74 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

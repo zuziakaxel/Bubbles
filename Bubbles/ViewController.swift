@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var bubbleView: BubbleView!
+    @IBOutlet weak var bubbleView: StaticBubbleView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

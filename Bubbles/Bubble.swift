@@ -10,6 +10,9 @@ import UIKit
 
 
 class Bubble: UIView {
+//MARK: IBOoutlets -
+    
+//MARK: Physical Properties -
     var a = Acceleration(x: 0, y: -G_VALUE)
     var v = Velocity(x: 1.0, y: 1.0)
     var m: Double
@@ -69,8 +72,9 @@ class Bubble: UIView {
     
 }
 
-func ==<B:Bubble>(left: B, right:B) -> Bool {
+func == (left: Bubble, right: Bubble) -> Bool {
     let d = sqrt(pow(left.center.x - right.center.x, 2) + pow(left.center.y - right.center.y, 2))
+    print("d=\(d), r+r = \(left.r + right.r)")
     if Double(d) <= (left.r + right.r) {
         return true
     } else {
@@ -83,7 +87,7 @@ class BubbleHelper {
     
     func createBubbles(no: Int, containerSize: CGSize) -> [Bubble] {
         var bubbles: [Bubble] = []
-        for i in 1...no {
+        for _ in 1...no {
             var bubble = createBubble(containerSize)
             while isBubbleAmbigous(bubble, bubbles: bubbles) {
                 bubble = createBubble(containerSize)
@@ -94,11 +98,15 @@ class BubbleHelper {
         return bubbles
     }
     
+    
+    
     private func createBubble(containerSize: CGSize) -> Bubble {
-        let randomRadius = arc4random_uniform(10) + 5
+        let randomRadius = arc4random_uniform(10) + 30
         let randomX = arc4random_uniform(UInt32(Int(containerSize.width)-Int(randomRadius))) + randomRadius
         let randomY = arc4random_uniform(UInt32(Int(containerSize.height)-Int(randomRadius))) + randomRadius
-        return Bubble(radius: CGFloat(randomRadius), center: CGPoint(x: CGFloat(randomX), y: CGFloat(randomY)))
+        let bubble = Bubble(radius: CGFloat(randomRadius), center: CGPoint(x: CGFloat(randomX), y: CGFloat(randomY)))
+        print("(\(bubble.center.x),\(bubble.center.x)), r = \(bubble.r)")
+        return bubble
     }
     
     private func isBubbleAmbigous(newBubble: Bubble, bubbles: [Bubble]) -> Bool {
@@ -107,9 +115,10 @@ class BubbleHelper {
                 return true
             }
         }
-        
         return false
     }
+    
+    
 }
 
 class BubbleView: UIScrollView {
